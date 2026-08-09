@@ -120,6 +120,11 @@ const sidebars = {
       ],
     },
     {
+      label: 'Intent Application',
+      type: 'doc',
+      id: 'intent-application'
+    },
+    {
       type: 'category',
       collapsed: false,
       label: 'Troubleshooting',

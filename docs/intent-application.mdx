@@ -1,0 +1,77 @@
+# Intent Application
+
+Discord requires bots that are accessible to 10,000 unique users to fill out an application to use privileged intents. Below is some guidance on making that application, and some explanation for the answers.
+
+## Application guidance
+
+> What does the application do?
+
+This private bot is a white-label instance of DiscordSRV, a Discord-Minecraft synchronization plugin, https://github.com/DiscordSRV/DiscordSRV
+
+> Do you have a public Privacy Policy telling your users about their data usage?
+
+No - Unless you have written one yourself
+
+> Which intents are you applying for, if any?
+
+Server Members Intent
+Message Content Intent
+
+### Server Members Intent
+> Why do you need the Guild Members intent?
+
+Discord-Minecraft account linking (including the "required linking" feature which requires players to be linked to connect to the Minecraft server),
+Minecraft group-Discord role synchronization,
+ban synchronization and
+nickname synchronization
+
+> Please provide links to screenshots and/or videos that demonstrate your use case
+
+Feel free to just take screenshots of the above features, from your own server and attach them
+
+> Are you storing any API Data off-platform (outside of Discord)?
+
+No
+
+### Message Content Intent
+> Can users opt-out of having their message content data tracked?
+
+Yes - users don't have to use the in-game chat bridge
+
+> Are you storing message content data off-platform (outside of Discord)?
+
+Yes - DiscordSRV logs messages sent in Discord into your server's console which gets written to its log (unless you aren't using the chat bridging features, or have gone out of your way to turn off the server logs)
+
+> Are you storing user message content data for 30 days or less?
+
+This depends on how long you keep your server logs
+
+> How do users contact you to request deletion of their activity data?
+
+Add your own contact method, data deletion involves deleting the chat messages from your Minecraft server's logs (or deleting the logs entirely)
+
+> Are you encrypting the data that you store at rest, as is required by our developer policy?
+
+This depends on if your server logs are stored on a encrypted volume. To comply with [Discord developer terms](https://support-dev.discord.com/hc/en-us/articles/8562894815383-Discord-Developer-Terms-of-Service), they would need to be. If you are using a hosting provider and don't know if the server logs are stored on a encrypted contact their support and ask. If the answer is no you can't technically comply with the checkbox at the end of the application assuring that you are in compliance with Discord developer terms.
+This is quite dubious given that the messages are also sent to clients of online players on the Minecraft server, which also log the information outside of your control
+
+> Will the message content data be used to train machine learning or AI Models?
+
+No - unless you have another plugin hooking to DiscordSRV doing that
+
+> Why do you need the Message Content intent?
+
+Discord to Minecraft chat forwarding,
+executing in-game commands from Discord,
+playerlist command in Discord to list in-game players,
+canned responses (customized message responses to certain trigger words) and
+linking Discord & Minecraft accounts together, through a Discord text channel
+
+> Please provide links to screenshots and/or videos that demonstrate your use case
+
+Feel free to just take screenshots of the above features, from your own server and attach them
+
+### Presence Intent
+
+This is only used if the `EnablePresenceInformation` option is enabled in the config.yml.
+Unless you have very clear use case for the `%discordsrv_linked_online%` PlaceholderAPI placeholder, you shouldn't even try to apply for it
